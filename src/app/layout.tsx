@@ -21,11 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(
-        "antialiased",
-        fontUnbounded.variable,
-        fontPrompt.variable
-      )}>
+      <body className={cn("antialiased", fontUnbounded.variable, fontPrompt.variable)}>
         <Providers>
           <Navbar />
           {children}
