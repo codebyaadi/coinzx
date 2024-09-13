@@ -11,15 +11,15 @@ const handler = NextAuth({
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       if (account?.provider === "google") {
-        const email = user.email
+        const email = user.email;
         if (!email) {
-          return false
+          return false;
         }
       }
-      console.log({ user, account, profile, email, credentials })
-      return true
-    }
-  }
+      console.log({ user, account, profile, email, credentials });
+      return true;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };
