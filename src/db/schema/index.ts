@@ -1,10 +1,15 @@
 import { relations } from "drizzle-orm";
-import { numeric, pgTable, uuid, varchar } from "drizzle-orm/pg-core";
+import { numeric, pgEnum, pgTable, uuid, varchar } from "drizzle-orm/pg-core";
+
+export const OAuthProviderEnum = pgEnum("oauth_providers", [
+  "google"
+]) 
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
   username: varchar("username", { length: 255 }).notNull().unique(),
-  password: varchar("password", { length: 255 }).notNull(),
+  password: varchar("password", { length: 255 }),
+  oauth_provider: OAuthProviderEnum("oauth_provider").notNull(),
 });
 
 export const inrWallets = pgTable("inr_wallets", {
