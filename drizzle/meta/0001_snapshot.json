@@ -1,6 +1,6 @@
 {
-  "id": "87d959d6-94ac-4479-b9a1-174c4a584352",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "36119f17-2b08-4419-9083-53de5b0face6",
+  "prevId": "87d959d6-94ac-4479-b9a1-174c4a584352",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -34,8 +34,12 @@
           "name": "inr_wallets_user_id_users_id_fk",
           "tableFrom": "inr_wallets",
           "tableTo": "users",
-          "columnsFrom": ["user_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -45,7 +49,9 @@
         "inr_wallets_user_id_unique": {
           "name": "inr_wallets_user_id_unique",
           "nullsNotDistinct": false,
-          "columns": ["user_id"]
+          "columns": [
+            "user_id"
+          ]
         }
       }
     },
@@ -85,8 +91,12 @@
           "name": "sol_wallets_user_id_users_id_fk",
           "tableFrom": "sol_wallets",
           "tableTo": "users",
-          "columnsFrom": ["user_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -96,7 +106,9 @@
         "sol_wallets_user_id_unique": {
           "name": "sol_wallets_user_id_unique",
           "nullsNotDistinct": false,
-          "columns": ["user_id"]
+          "columns": [
+            "user_id"
+          ]
         }
       }
     },
@@ -110,6 +122,18 @@
           "primaryKey": true,
           "notNull": true,
           "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profile_img": {
+          "name": "profile_img",
+          "type": "varchar(1023)",
+          "primaryKey": false,
+          "notNull": false
         },
         "username": {
           "name": "username",
@@ -138,7 +162,9 @@
         "users_username_unique": {
           "name": "users_username_unique",
           "nullsNotDistinct": false,
-          "columns": ["username"]
+          "columns": [
+            "username"
+          ]
         }
       }
     }
@@ -147,7 +173,9 @@
     "public.oauth_providers": {
       "name": "oauth_providers",
       "schema": "public",
-      "values": ["google"]
+      "values": [
+        "google"
+      ]
     }
   },
   "schemas": {},

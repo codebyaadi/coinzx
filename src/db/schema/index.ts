@@ -1,12 +1,12 @@
 import { relations } from "drizzle-orm";
 import { numeric, pgEnum, pgTable, uuid, varchar } from "drizzle-orm/pg-core";
 
-export const OAuthProviderEnum = pgEnum("oauth_providers", [
-  "google"
-]) 
+export const OAuthProviderEnum = pgEnum("oauth_providers", ["google"]);
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
+  name: varchar("name", { length: 255 }).notNull(),
+  profileImg: varchar("profile_img", { length: 1023 }),
   username: varchar("username", { length: 255 }).notNull().unique(),
   password: varchar("password", { length: 255 }),
   oauth_provider: OAuthProviderEnum("oauth_provider").notNull(),
@@ -18,7 +18,7 @@ export const inrWallets = pgTable("inr_wallets", {
   userId: uuid("user_id")
     .notNull()
     .unique()
-    .references(() => users.id)
+    .references(() => users.id),
 });
 
 export const solWallets = pgTable("sol_wallets", {
@@ -52,6 +52,6 @@ export const solWalletsRelations = relations(solWallets, ({ one }) => ({
 export const inrWalletsRelations = relations(inrWallets, ({ one }) => ({
   user: one(users, {
     fields: [inrWallets.userId],
-    references: [users.id]
+    references: [users.id],
   }),
 }));

@@ -21,7 +21,7 @@ const handler = NextAuth({
         }
 
         const userdb = await db.query.users.findFirst({
-          where: eq(users.username, email)
+          where: eq(users.username, email),
         });
 
         if (userdb) {
@@ -32,20 +32,25 @@ const handler = NextAuth({
         const pubKey = keypair.publicKey.toBase58();
         const pvtKey = keypair.secretKey.toString();
 
-        const newUser = await db.insert(users).values({
-          username: user.email!,
-          oauth_provider: account.provider,
-        }).returning({ id: users.id });
+        const newUser = await db
+          .insert(users)
+          .values({
+            name: profile?.name!,
+            profileImg: profile?.image,
+            username: user.email!,
+            oauth_provider: account.provider,
+          })
+          .returning({ id: users.id });
 
         await db.insert(solWallets).values({
           publicKey: pubKey,
           privateKey: pvtKey,
-          userId: newUser[0].id
+          userId: newUser[0].id,
         });
 
         await db.insert(inrWallets).values({
           balance: "0",
-          userId: newUser[0].id
+          userId: newUser[0].id,
         });
       }
       return true;
