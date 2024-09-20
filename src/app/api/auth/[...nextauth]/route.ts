@@ -13,7 +13,7 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account, profile }) {
       if (account?.provider === "google") {
         const email = user.email;
         if (!email) {
