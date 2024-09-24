@@ -1,17 +1,20 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const session = useSession();
 
   return (
     <nav className="w-full font-prompt">
-      <div className="item-center mx-auto flex max-w-7xl justify-between py-2">
+      <div className="item-center mx-auto flex max-w-full md:max-w-4xl lg:max-w-7xl justify-between py-2 px-4">
         <div id="logo">
-          <h1 className="font-unbounded text-base font-semibold text-orange-400">CoinzX</h1>
+          <Link href="/">
+            <h1 className="font-unbounded text-base font-semibold text-orange-400">CoinzX</h1>
+          </Link>
         </div>
         {session.data?.user ? (
           <Button variant="destructive" className="rounded-full" onClick={() => signOut()}>
