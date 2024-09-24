@@ -10,17 +10,18 @@ const Dashboard = () => {
   const user = session.data?.user;
 
   return (
-    <div className="flex h-full w-full items-center justify-center font-prompt px-4">
+    <div className="flex h-full w-full items-center justify-center px-4 font-prompt">
       <Card className="max-w-3xl rounded-md p-6">
-        <CardHeader className="flex flex-row justify-center items-start lg:items-center space-x-4">
+        <CardHeader className="flex flex-row items-start justify-center space-x-4 lg:items-center">
           <Avatar>
-            <AvatarImage src={user?.image || "/default-avatar.png"} alt={user?.name || "User Avatar"} />
+            <AvatarImage
+              src={user?.image || "/default-avatar.png"}
+              alt={user?.name || "User Avatar"}
+            />
             <AvatarFallback>{user?.name?.charAt(0) || "U"}</AvatarFallback>
           </Avatar>
           <div className="!mt-0">
-            <CardTitle className="text-lg">
-              Welcome back, {user?.name || "Guest"}!
-            </CardTitle>
+            <CardTitle className="text-lg">Welcome back, {user?.name || "Guest"}!</CardTitle>
             <CardDescription>
               We're glad to see you. Explore your dashboard and manage your account easily.
             </CardDescription>
