@@ -15,6 +15,13 @@
       "when": 1726586344549,
       "tag": "0001_parched_talkback",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1727241080592,
+      "tag": "0002_next_loki",
+      "breakpoints": true
     }
   ]
 }

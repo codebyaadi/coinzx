@@ -54,7 +54,7 @@ const UserButton = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className="cursor-pointer">
         <Avatar>
           <AvatarImage
             src={user?.image || "/default-avatar.png"}

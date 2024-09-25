@@ -10,6 +10,7 @@ export const users = pgTable("users", {
   username: varchar("username", { length: 255 }).notNull().unique(),
   password: varchar("password", { length: 255 }),
   oauth_provider: OAuthProviderEnum("oauth_provider").notNull(),
+  oauth_id: varchar("oauth_id", { length: 255 }).default("")
 });
 
 export const inrWallets = pgTable("inr_wallets", {
