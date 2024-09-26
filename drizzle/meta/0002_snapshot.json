@@ -34,12 +34,8 @@
           "name": "inr_wallets_user_id_users_id_fk",
           "tableFrom": "inr_wallets",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -49,9 +45,7 @@
         "inr_wallets_user_id_unique": {
           "name": "inr_wallets_user_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id"
-          ]
+          "columns": ["user_id"]
         }
       }
     },
@@ -91,12 +85,8 @@
           "name": "sol_wallets_user_id_users_id_fk",
           "tableFrom": "sol_wallets",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -106,9 +96,7 @@
         "sol_wallets_user_id_unique": {
           "name": "sol_wallets_user_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id"
-          ]
+          "columns": ["user_id"]
         }
       }
     },
@@ -169,9 +157,7 @@
         "users_username_unique": {
           "name": "users_username_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "username"
-          ]
+          "columns": ["username"]
         }
       }
     }
@@ -180,9 +166,7 @@
     "public.oauth_providers": {
       "name": "oauth_providers",
       "schema": "public",
-      "values": [
-        "google"
-      ]
+      "values": ["google"]
     }
   },
   "schemas": {},
